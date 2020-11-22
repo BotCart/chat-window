@@ -2,7 +2,7 @@ export const DEFAULT_BASE_URL = 'https://app.papercups.io';
 
 export const isDev = (w: any) => {
   return Boolean(
-    w.location.hostname === 'localhost' ||
+    w.location.hostname === '0.0.0.0' ||
       // [::1] is the IPv6 localhost address.
       w.location.hostname === '[::1]' ||
       // 127.0.0.0/8 are considered localhost for IPv4.
