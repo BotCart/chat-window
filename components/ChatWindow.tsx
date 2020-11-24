@@ -77,7 +77,7 @@ class ChatWindow extends React.Component<Props, State> {
       isTransitioning: false,
       isGameMode: false,
       shouldDisplayNotifications: false,
-      shouldDisplayBranding: false,
+      shouldDisplayBranding: true,
     };
   }
 
@@ -240,10 +240,8 @@ class ChatWindow extends React.Component<Props, State> {
     this.logger.debug('Handling subscription plan:', payload);
 
     const plan = payload && payload.plan;
-    const shouldDisplayBranding = plan
-      ? String(plan).toLowerCase() === 'starter'
-      : false;
-
+    const shouldDisplayBranding = true;
+    
     this.setState({shouldDisplayBranding});
   };
 
@@ -953,7 +951,7 @@ class ChatWindow extends React.Component<Props, State> {
           })}
           <div ref={(el) => (this.scrollToEl = el)} />
         </Box>
-        {<PapercupsBranding />}
+        {shouldDisplayBranding && <PapercupsBranding />}
         <Box
           px={2}
           sx={{
